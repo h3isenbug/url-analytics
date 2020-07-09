@@ -10,7 +10,7 @@ require (
 	github.com/google/uuid v1.1.1
 	github.com/google/wire v0.4.0
 	github.com/gorilla/mux v1.7.4
-	github.com/h3isenbug/url-common v0.0.0-20200629075633-9410d146bfeb
+	github.com/h3isenbug/url-common v0.0.0-20200709115336-ee834a145214
 	github.com/imroc/req v0.3.0
 	github.com/jmoiron/sqlx v1.2.0
 	github.com/lib/pq v1.0.0
