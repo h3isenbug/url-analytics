@@ -1,11 +1,12 @@
 FROM golang:1.14
-WORKDIR /usr/local/go/src/github.com/h3isenbug/url-analytics
-COPY * ./
 RUN go get github.com/google/wire/cmd/wire
+#RUN go get github.com/h3isenbug/url-analytics/...
+WORKDIR /src
+COPY . ./
 RUN make
 
 FROM alpine:latest
 RUN apk --no-cache add ca-certificates
 WORKDIR /srv
-COPY --from=0 /usr/local/go/src/github.com/h3isenbug/url-analytics/analytics .
+COPY --from=0 /src/analytics .
 CMD ["./analytics"]
