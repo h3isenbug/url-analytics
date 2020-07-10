@@ -9,17 +9,6 @@ type PostgresTotalViewRepository struct {
 	con *sqlx.DB
 }
 
-/*		`SELECT  SUM(browser_chrome)  AS browser_chrome,
-				SUM(browser_ie)      AS browser_ie,
-				SUM(browser_safari)  AS browser_safari,
-				SUM(browser_firefox) AS browser_firefox,
-
-				SUM(platform_desktop) AS platform_desktop,
-				SUM(platform_mobile)  AS platform_mobile,
-				SUM(total_views)      AS total_views
-		FROM total_views WHERE short_path=$1 AND day_since_2020 >= $2 AND day_since_2020 <= $3;`,
-*/
-
 func NewPostgresTotalViewRepository(con *sqlx.DB) (TotalViewsRepository, error) {
 	_, err := con.Exec(`CREATE TABLE IF NOT EXISTS total_views (
 									short_path varchar(10),

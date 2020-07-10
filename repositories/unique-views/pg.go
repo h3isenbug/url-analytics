@@ -12,7 +12,7 @@ type PostgresUniqueViewRepository struct {
 }
 
 func NewPostgresUniqueViewRepository(con *sqlx.DB) (UniqueViewsRepository, error) {
-	_, err := con.Exec(`CREATE TABLE IF NOT EXISTS unique_views (short_path varchar(10), etag varchar(20), browser int, platform int, days_since_2020 int, PRIMARY KEY(short_path, etag));`)
+	_, err := con.Exec(`CREATE TABLE IF NOT EXISTS unique_views (short_path varchar(10), etag varchar(40), browser int, platform int, days_since_2020 int, PRIMARY KEY(short_path, etag));`)
 	if err != nil {
 		return nil, err
 	}
