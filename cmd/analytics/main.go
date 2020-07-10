@@ -13,11 +13,11 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	defer cleanup()
 
 	handleInterruptSignal(func(c chan os.Signal) {
 		<-c
 		fmt.Println("shutting down...")
-		cleanup()
 	})
 
 	app.jobRunner.Start()
